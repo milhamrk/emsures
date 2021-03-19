@@ -1,3 +1,4 @@
+# Price Movements
 import pandas as pd
 import numpy as np
 import yfinance
@@ -9,9 +10,9 @@ plt.rcParams['figure.figsize'] = [15, 7]
 
 plt.rc('font', size=14)
 
-name = '^JKSE'
+name = 'AALI.JK'
 ticker = yfinance.Ticker(name)
-df = ticker.history(interval="1d", start="2020-03-15", end="2020-07-15")
+df = ticker.history(interval="1d", start="2020-08-15", end="2021-03-18")
 
 df['Date'] = pd.to_datetime(df.index)
 df['Date'] = df['Date'].apply(mpl_dates.date2num)
@@ -76,5 +77,5 @@ for i in range(2, df.shape[0] - 2):
 
         if isFarFromLevel(l):
             levels.append((i, l))
-
+print(levels)
 plot_all()
