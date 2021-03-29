@@ -61,7 +61,7 @@ def process(stock):
 
         elif isResistance(df, i):
             l = df['High'][i]
-            d = "Hight at " + str(datetime.strftime(df.index[i], '%d %b %Y'))
+            d = "High at " + str(datetime.strftime(df.index[i], '%d %b %Y'))
 
             if isFarFromLevel(l):
                 levels.append((i, math.floor(l)))
