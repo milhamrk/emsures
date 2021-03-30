@@ -79,4 +79,4 @@ def results(stock):
     del result[:]
     process(stock)
     result.reverse()
-    return result[:16]
+    return result[:22]
