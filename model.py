@@ -78,4 +78,5 @@ def results(stock):
     del levels[:]
     del result[:]
     process(stock)
-    return result
+    result.reverse()
+    return result[:16]
