@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 from datetime import datetime
 import yfinance
+import datetime as dt
 import math
 import matplotlib.dates as mpl_dates
 
@@ -15,7 +16,7 @@ def process(stock):
     levels = []
     name = stock + '.JK'
     ticker = yfinance.Ticker(name)
-    df = ticker.history(interval="1d", start="2020-08-15", end="2021-03-18")
+    df = ticker.history(interval="1d", start="2020-03-03", end=dt.datetime.now())
 
     df['Date'] = pd.to_datetime(df.index)
     df['Date'] = df['Date'].apply(mpl_dates.date2num)
