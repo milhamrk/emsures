@@ -73,6 +73,23 @@ def process(stock):
                 }
                 result.append(temp)
 
+    ma20 = 20
+    ma50 = 50
+    ma100 = 100
+    ma200 = 200
+    sma = [ma20, ma50, ma100, ma200]
+
+    for i in sma:
+        df["MA" + str(i) + " Daily"] = round(df['Close'].rolling(window=i).mean())
+
+    df = df.tail(1)
+    for i in sma:
+        temp = {
+            "price": df["MA" + str(i) + " Daily"][0],
+            "from": "MA" + str(i) + " Daily"
+        }
+        result.insert(0, temp)
+
 
 def results(stock):
     del levels[:]
@@ -80,4 +97,4 @@ def results(stock):
     process(stock)
     # If reverse needed uncomment this
     # result.reverse()
-    return result[:22]
+    return result
